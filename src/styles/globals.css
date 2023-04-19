@@ -125,3 +125,45 @@ code {
   font-family: "Roboto-Bold";
   src: local("Roboto"), url(../../public/fonts/Roboto-Bold.ttf) format("truetype");
 }
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+
+label{
+  font-size: 20px;
+  font-family: "Roboto-Medium";
+  color: white;
+}
+
+input{
+  width: 500px;
+  height: 53px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255, 0.5);
+  padding: 0 10px;
+  font-size: 20px;
+  font-family: "Roboto-Regular";
+  margin-bottom: 10px;
+  color: white;
+  background-color: transparent;
+}
+
+input:focus{
+  outline: none;
+  border: 1px solid rgba(255,255,255, 1);
+}
+
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
