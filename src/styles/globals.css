@@ -1,12 +1,10 @@
 body {
   margin: 0;
-  font-family: Roboto-Medium, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: Roboto-Medium, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 * {
   box-sizing: border-box;
@@ -27,19 +25,24 @@ a {
   color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0px;
   padding: 0px;
   font-family: "Roboto-Medium";
 }
 
-h1{
+h1 {
   font-size: 40px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: white;
 }
 
-h2{
+h2 {
   font-size: 28px;
   margin-bottom: 20px;
   color: white;
@@ -76,7 +79,7 @@ li {
   list-style: none;
   padding: 15px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   width: 500px;
   height: 150px;
   cursor: pointer;
@@ -84,21 +87,20 @@ li {
   transition: all 0.2s ease-in-out;
 }
 
-li:hover{
-  border: 1px solid rgba(255,255,255, 1);
-  background-color: rgba(255,255,255, 0.1);
+li:hover {
+  border: 1px solid rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-li:active{
+li:active {
   transform: translate(1px, 1px);
-
 }
 
-li:before{
+li:before {
   position: absolute;
   top: 15px;
   right: 15px;
-  color: #12203d ;
+  color: #12203d;
   background-color: white;
   width: 100px;
   height: 20px;
@@ -112,15 +114,15 @@ li:nth-child(1):before {
   content: "level 0";
 }
 
-li:nth-child(2):before{
+li:nth-child(2):before {
   content: "level 1";
 }
 
-li:nth-child(3):before{
+li:nth-child(3):before {
   content: "level 2";
 }
 
-li:after{
+li:after {
   position: absolute;
   content: "→";
   bottom: 15px;
@@ -130,66 +132,25 @@ li:after{
   transition: transform 0.1s ease-in-out;
 }
 
-li:hover:after{
+li:hover:after {
   transform: translate(5px, 0px);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
-@font-face {
-  font-family: "Roboto-Light";
-  src: local("Roboto"), url(../../public/fonts/Roboto-Light.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Roboto-Medium";
-  src: local("Roboto"), url(../../public/fonts/Roboto-Medium.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Roboto-Regular";
-  src: local("Roboto"),
-    url(../../public/fonts/Roboto-Regular.ttf) format("truetype");
-}
-
-@font-face {
-  font-family: "Roboto-Bold";
-  src: local("Roboto"), url(../../public/fonts/Roboto-Bold.ttf) format("truetype");
-}
-
-.back-button{
-  position: absolute; 
-  top: 50px; 
-  left: 50px; 
-  font-family: "Roboto-Medium";
-  font-size: 16px;
-  border-radius: 5px;
-  padding: 5px;
-
-}
-
-.input-group{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 40px;
-  gap: 10px;
-}
-
-label{
+label {
   font-size: 20px;
   font-family: "Roboto-Medium";
   color: white;
 }
 
-input{
+input {
   width: 500px;
   height: 53px;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   padding: 0 10px;
   font-size: 20px;
   font-family: "Roboto-Regular";
@@ -198,9 +159,27 @@ input{
   background-color: transparent;
 }
 
-input:focus{
+input:focus {
   outline: none;
-  border: 1px solid rgba(255,255,255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.back-button {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  font-family: "Roboto-Medium";
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  gap: 10px;
 }
 
 .container {
@@ -221,4 +200,24 @@ input:focus{
   padding: 20px;
   border: 1px solid white;
   border-radius: 10px;
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: local("Roboto"), url(../../public/fonts/Roboto-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: local("Roboto"), url(../../public/fonts/Roboto-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Regular";
+  src: local("Roboto"), url(../../public/fonts/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: local("Roboto"), url(../../public/fonts/Roboto-Bold.ttf) format("truetype");
 }

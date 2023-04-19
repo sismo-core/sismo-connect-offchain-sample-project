@@ -7,12 +7,9 @@ import {
   SismoConnectVerifiedResult,
 } from "@sismo-core/sismo-connect-server";
 
-const sismoConnectConfig: SismoConnectServerConfig = {
-  appId: "0x112a692a2005259c25f6094161007967",
-  devMode: {
-    enabled: true,
-  },
-};
+/************************************************ */
+/********* A SIMPLE IN-MEMORY DATABASE ********** */
+/************************************************ */
 
 type UserType = {
   id: string;
@@ -31,21 +28,32 @@ class MyLocalDataBase {
   public setUser(userId: string, user: UserType): void {
     this.userStore.set(userId, user);
   }
-
-  public deleteUser(userId: string): void {
-    this.userStore.delete(userId);
-  }
 }
 const userStore = new MyLocalDataBase();
 
+/************************************************ */
+/************* CONFIGURE SISMO CONNECT ********** */
+/************************************************ */
+
+// define the SismoConnect configuration
+const sismoConnectConfig: SismoConnectServerConfig = {
+  appId: "0x112a692a2005259c25f6094161007967",
+  devMode: {
+    enabled: true,
+  },
+};
+
 // create a SismoConnect instance
 const sismoConnect = SismoConnect(sismoConnectConfig);
+
+/************************************************ */
+/***************** THE API ROUTE **************** */
+/************************************************ */
 
 // this is the API route that is called by the SismoConnectButton
 export default async function handler(req: NextApiRequest, res: NextApiResponse<UserType | void>) {
   const { response } = req.body;
 
-  console.log("response", response);
   try {
     const result: SismoConnectVerifiedResult = await sismoConnect.verify(response, {
       auths: [
