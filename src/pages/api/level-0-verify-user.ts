@@ -18,12 +18,12 @@ type UserType = {
 class MyLocalDataBase {
   private userStore = new Map<string, UserType>();
 
-  public getUserName(userId: string): UserType | undefined {
+  public getUser(userId: string): UserType | undefined {
     return this.userStore.get(userId);
   }
 
-  public setUser(userId: string, user: UserType): void {
-    this.userStore.set(userId, user);
+  public setUser(user: UserType): void {
+    this.userStore.set(user.id, user);
   }
 }
 const userStore = new MyLocalDataBase();
@@ -67,7 +67,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     };
 
     // store the user in the database
-    userStore.setUser(user.id, user);
+    userStore.setUser(user);
 
     res.status(200).send(user);
   } catch (e: any) {
