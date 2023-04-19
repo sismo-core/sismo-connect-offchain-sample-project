@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton";
 import { Title } from "@/components/Title";
 import {
   SismoConnectButton,
@@ -88,10 +89,7 @@ export default function Level2RegisterUser() {
 
   return (
     <>
-      <Link href="/" className="back-button">
-        ← Back Home
-      </Link>
-
+      <BackButton />
       <div className="container">
         {!verifiedUser && (
           <>

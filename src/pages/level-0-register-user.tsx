@@ -1,3 +1,4 @@
+import BackButton from "@/components/BackButton";
 import {
   SismoConnectButton,
   SismoConnectClientConfig,
@@ -52,12 +53,8 @@ export default function Level0RegisterUser() {
     }
   };
 
-  return (
-    <>
-      <Link href="/" className="back-button">
-        ← Back Home
-      </Link>
-
+  return ( <>
+      <BackButton/>
       <div className="container">
         {!verifiedUser && (
           <>
