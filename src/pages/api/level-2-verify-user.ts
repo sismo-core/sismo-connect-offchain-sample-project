@@ -67,7 +67,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       ],
       claims: [
         { groupId: "0x682544d549b8a461d7fe3e589846bb7b" },
-        { groupId: "0x1cde61966decb8600dfd0749bd371f12" },
+        {
+          groupId: "0x1cde61966decb8600dfd0749bd371f12",
+          isOptional: true,
+        },
       ],
       signature: {
         message: "",

@@ -123,7 +123,10 @@ export default function Level2RegisterUser() {
               ]}
               claims={[
                 { groupId: "0x682544d549b8a461d7fe3e589846bb7b" },
-                { groupId: "0x1cde61966decb8600dfd0749bd371f12" },
+                {
+                  groupId: "0x1cde61966decb8600dfd0749bd371f12",
+                  isOptional: true, // enable the user to selectively share its Gitcoin Passport
+                },
               ]}
               signature={{
                 message: userInput,

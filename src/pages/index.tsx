@@ -5,9 +5,9 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1>Sismo Connect - Offchain</h1>
+      <h1>Getting Started<br/>Sismo Connect Offchain</h1>
       <section>
-        <h2>Learning steps:</h2>
+        {/* <h2>Learning steps:</h2> */}
         <ul>
           <li onClick={() => router.push("/level-0-register-user")}>
             <h3>Register a user</h3>

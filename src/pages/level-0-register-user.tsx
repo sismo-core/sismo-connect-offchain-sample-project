@@ -32,12 +32,13 @@ export default function Level0RegisterUser() {
     setVerifying(true);
 
     try {
-      // We send the response to our backend to verify the proof
+      console.log("response", response)
+     // We send the response to our backend to verify the proof
       const res = await axios.post(`/api/level-0-verify-user`, {
         response,
       });
 
-      const user = res.data.user;
+      const user = res.data;
 
       // If the proof is valid, we update the user react state to show the user profile
       setVerifiedUser({
