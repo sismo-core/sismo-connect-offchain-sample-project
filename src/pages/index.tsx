@@ -1,40 +1,33 @@
-import { Container } from "@/components/Container";
-import { Title } from "@/components/Title";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import styled from "styled-components";
 
 export default function Home() {
   const router = useRouter();
 
   return (
-    <Container>
-      <Title>Sismo Connect boilerplate</Title>
+    <div className="container">
+      <h1>Sismo Connect - Offchain</h1>
       <section>
-        <h2>Off-chain examples</h2>
+        <h2>Learning steps:</h2>
         <ul>
-          <li onClick={() => router.push("/off-chain/simple-claim")}>
-            <h3>Simple Claim</h3>
-            <p>on a groupId with devMode true</p>
+          <li onClick={() => router.push("/level-0-register-user")}>
+            <h3>Register a user</h3>
+            <p>Request for a user id from Sismo Connect</p>
           </li>
-          <li onClick={() => router.push("/off-chain/simple-auth")}>
-            <h3>Simple Auth</h3>
-            <p>for Data Vault ownership</p>
+          <li onClick={() => router.push("/level-1-register-user")}>
+            <h3>Register a simple user conditionally</h3>
+            <p>
+              Request for a user id and a Proof of Humanity from Sismo Connect and save his user name
+            </p>
           </li>
-          <li onClick={() => router.push("/off-chain/auth-and-claim")}>
-            <h3>Simple Claim and Data Vault ownership</h3>
-            <p>- Claim on a groupId with devMode true </p>
-            <p>- Data Vault ownership</p>
-          </li>
-          <li onClick={() => router.push("/off-chain/two-auths-claim-and-signature")}>
-            <h3>One Claim, two Auths and Signature</h3>
-            <p>- Claim on a groupId with devMode true</p>
-            <p>- Required GitHub account ownership</p>
-            <p>- Optional Twitter account ownership</p>
-            <p>- Message signature</p>
+          <li onClick={() => router.push("/level-2-register-user")}>
+            <h3>Register a complex user conditionally</h3>
+            <p>
+              Request for a userId, a Proof of Humanity and optionally reveal his twitter id and a
+              proof of Gitcoin passport from Sismo Connect
+            </p>
           </li>
         </ul>
       </section>
-    </Container>
+    </div>
   );
 }

@@ -13,7 +13,7 @@ body {
 }
 
 html {
-  background-color: #0A1223;
+  background: linear-gradient(285.51deg, #193970 -75.32%, #12203d 76.45%);
   color: #ffffff;
 }
 
@@ -31,6 +31,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px;
   padding: 0px;
   font-family: "Roboto-Medium";
+}
+
+h1{
+  font-size: 40px;
+  margin-bottom: 10px;
+  color: white;
 }
 
 h2{
@@ -57,6 +63,7 @@ ul {
   padding: 0px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -79,11 +86,38 @@ li {
 
 li:hover{
   border: 1px solid rgba(255,255,255, 1);
+  background-color: rgba(255,255,255, 0.1);
 }
 
 li:active{
   transform: translate(1px, 1px);
 
+}
+
+li:before{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #12203d ;
+  background-color: white;
+  width: 100px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+li:nth-child(1):before {
+  content: "level 0";
+}
+
+li:nth-child(2):before{
+  content: "level 1";
+}
+
+li:nth-child(3):before{
+  content: "level 2";
 }
 
 li:after{
@@ -126,6 +160,17 @@ code {
   src: local("Roboto"), url(../../public/fonts/Roboto-Bold.ttf) format("truetype");
 }
 
+.back-button{
+  position: absolute; 
+  top: 50px; 
+  left: 50px; 
+  font-family: "Roboto-Medium";
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 5px;
+
+}
+
 .input-group{
   display: flex;
   flex-direction: column;
@@ -158,11 +203,21 @@ input:focus{
   border: 1px solid rgba(255,255,255, 1);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
 
 .profile-container {
   display: flex;
   flex-direction: column;
 
+  width: 700px;
   padding: 20px;
   border: 1px solid white;
   border-radius: 10px;
