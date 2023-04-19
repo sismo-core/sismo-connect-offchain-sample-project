@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
+  // you can create a new Sismo Connect app at https://factory.sismo.io
   appId: "0x112a692a2005259c25f6094161007967",
   devMode: {
     // enable or disable dev mode here to create development groups and use the development vault.

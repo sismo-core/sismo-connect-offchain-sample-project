@@ -1,5 +1,4 @@
 import BackButton from "@/components/BackButton";
-import { Title } from "@/components/Title";
 import {
   SismoConnectButton,
   SismoConnectClientConfig,
@@ -11,6 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
+  // you can create a new Sismo Connect app at https://factory.sismo.io
   appId: "0x112a692a2005259c25f6094161007967",
   devMode: {
     // enable or disable dev mode here to create development groups and use the development vault.
@@ -100,12 +100,16 @@ export default function Level2RegisterUser() {
               in a database.
             </p>
 
-            {!verifying && (
-              <div className="input-group">
-                <label htmlFor="userName">Gimme you name</label>
-                <input id="userName" type="text" value={userInput} onChange={onUserInput} />
-              </div>
-            )}
+            <div className="input-group">
+              <label htmlFor="userName">Gimme you name</label>
+              <input
+                id="userName"
+                type="text"
+                value={userInput}
+                onChange={onUserInput}
+                disabled={verifying}
+              />
+            </div>
 
             <SismoConnectButton
               config={sismoConnectConfig}
@@ -134,7 +138,7 @@ export default function Level2RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <Title>Yes you are human</Title>
+            <h1>Yes you are human</h1>
             <p style={{ marginBottom: 20 }}>
               The user has shared his anonymous userId, proved that he is a member of the Proof of
               Humanity group, signed a message with his user name and optionally for a proof of

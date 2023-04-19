@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
+  // you can create a new Sismo Connect app at https://factory.sismo.io
   appId: "0x112a692a2005259c25f6094161007967",
   devMode: {
     // enable or disable dev mode here to create development groups and use the development vault.
@@ -63,10 +64,10 @@ export default function Level1RegisterUser() {
       setError("Invalid response");
       console.error(e);
     } finally {
-      // We set the loading state to false to show the user profile 
+      // We set the loading state to false to show the user profile
       setVerifying(false);
     }
-  };
+  }
 
   // On text input change, we update the userInput react state variable
   function onUserInput(e) {
@@ -75,30 +76,34 @@ export default function Level1RegisterUser() {
 
   return (
     <>
-       <BackButton/>
+      <BackButton />
       <div className="container">
         {!verifiedUser && (
           <>
             <h1>Are you a human?</h1>
             <p style={{ marginBottom: 20 }}>
-            Level 1: request for an anonymous user id, a Proof of Humanity, a signed message with the
-              username and save it in a database.
+              Level 1: request for an anonymous user id, a Proof of Humanity, a signed message with
+              the username and save it in a database.
             </p>
 
-            {!verifying && (
-              <div className="input-group">
-                <label htmlFor="userName">Gimme you name</label>
-                <input id="userName" type="text" value={userInput} onChange={onUserInput} />
-              </div>
-            )}
+            <div className="input-group">
+              <label htmlFor="userName">Gimme you name</label>
+              <input
+                id="userName"
+                type="text"
+                value={userInput}
+                onChange={onUserInput}
+                disabled={verifying}
+              />
+            </div>
 
             <SismoConnectButton
               config={sismoConnectConfig}
               auths={[{ authType: AuthType.VAULT }]}
               claims={[{ groupId: "0x682544d549b8a461d7fe3e589846bb7b" }]}
-              signature={{ 
-                message: userInput, 
-                isSelectableByUser: true // Allow the user to change the message (here his user name) during the Sismo Connect flow
+              signature={{
+                message: userInput,
+                isSelectableByUser: true, // Allow the user to change the message (here his user name) during the Sismo Connect flow
               }}
               onResponse={(response: SismoConnectResponse) => verify(response)}
               verifying={verifying}

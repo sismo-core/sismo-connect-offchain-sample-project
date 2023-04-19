@@ -37,6 +37,7 @@ const userStore = new MyLocalDataBase();
 
 // define the SismoConnect configuration
 const sismoConnectConfig: SismoConnectServerConfig = {
+  // you can create a new Sismo Connect app at https://factory.sismo.io
   appId: "0x112a692a2005259c25f6094161007967",
   devMode: {
     enabled: true,
