@@ -10,10 +10,10 @@ import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
-  // you can create a new Sismo Connect app at https://factory.sismo.io
+  // You can create a new Sismo Connect app at https://factory.sismo.io
   appId: "0x112a692a2005259c25f6094161007967",
   devMode: {
-    // enable or disable dev mode here to create development groups and use the development vault.
+    // Enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
     devGroups: [
       {
@@ -23,7 +23,6 @@ export const sismoConnectConfig: SismoConnectClientConfig = {
         data: [
           "0x2b9b9846d7298e0272c61669a54f0e602aba6290",
           "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec",
-          "0x855193BCbdbD346B423FF830b507CBf90ecCc90B",
           "0x938f169352008d35e065F153be53b3D3C07Bcd90",
         ],
       },
@@ -43,7 +42,7 @@ export default function Level1RegisterUser() {
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
 
   async function verify(response: SismoConnectResponse) {
-    // first we update the react state to show the loading state
+    // First we update the react state to show the loading state
     setVerifying(true);
 
     try {
@@ -60,7 +59,7 @@ export default function Level1RegisterUser() {
         name: user.name,
       });
     } catch (e) {
-      // else if the proof is invalid, we show an error message
+      // Else if the proof is invalid, we show an error message
       setError("Invalid response");
       console.error(e);
     } finally {
@@ -80,8 +79,8 @@ export default function Level1RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1>Are you a human?</h1>
-            <p style={{ marginBottom: 20 }}>
+            <h1 className="title">Are you a human?</h1>
+            <p className="subtitle-page">
               Level 1: request for an anonymous user id, a Proof of Humanity, a signed message with
               the username and save it in a database.
             </p>
@@ -89,6 +88,7 @@ export default function Level1RegisterUser() {
             <div className="input-group">
               <label htmlFor="userName">Gimme you name</label>
               <input
+                className="text-input"
                 id="userName"
                 type="text"
                 value={userInput}
@@ -114,23 +114,21 @@ export default function Level1RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1>Yes you are human</h1>
-            <p style={{ marginBottom: 20 }}>
+            <h1 className="title">Yes you are human</h1>
+            <p className="subtitle-page">
               The user has shared his anonymous userId, proved that he is a member of the Proof of
               Humanity group, signed a message with his user name and we saved it in our local
               database
             </p>
             <div className="profile-container">
-              <div>
-                <h2>User Profile</h2>
-                <div style={{ marginBottom: 10 }}>
-                  <b>UserId:</b>
-                  <p>{verifiedUser.id}</p>
-                </div>
-                <div style={{ marginBottom: 10 }}>
-                  <b>UserName:</b>
-                  <p>{verifiedUser.name}</p>
-                </div>
+              <h2 style={{ marginBottom: 10 }}>User Profile</h2>
+              <div style={{ marginBottom: 10 }}>
+                <b>UserId:</b>
+                <p>{verifiedUser.id}</p>
+              </div>
+              <div style={{ marginBottom: 10 }}>
+                <b>UserName:</b>
+                <p>{verifiedUser.name}</p>
               </div>
             </div>
           </>

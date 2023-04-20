@@ -5,6 +5,7 @@ import {
   SismoConnectServerConfig,
   AuthType,
   SismoConnectVerifiedResult,
+  ClaimType,
 } from "@sismo-core/sismo-connect-server";
 
 /************************************************ */
@@ -70,6 +71,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         {
           groupId: "0x1cde61966decb8600dfd0749bd371f12",
           isOptional: true,
+          claimType: ClaimType.GTE,
+          value: 2,
         },
       ],
       signature: {

@@ -6,7 +6,6 @@ import {
   AuthType,
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
-import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
@@ -32,8 +31,8 @@ export default function Level0RegisterUser() {
     setVerifying(true);
 
     try {
-      console.log("response", response)
-     // We send the response to our backend to verify the proof
+      console.log("response", response);
+      // We send the response to our backend to verify the proof
       const res = await axios.post(`/api/level-0-verify-user`, {
         response,
       });
@@ -44,24 +43,26 @@ export default function Level0RegisterUser() {
       setVerifiedUser({
         id: user.id,
       });
-
     } catch (e) {
-      // else if the proof is invalid, we show an error message
+      // Else if the proof is invalid, we show an error message
       setError("Invalid response");
       console.error(e);
     } finally {
-      // We set the loading state to false to show the user profile 
+      // We set the loading state to false to show the user profile
       setVerifying(false);
     }
-  };
+  }
 
-  return ( <>
-      <BackButton/>
+  return (
+    <>
+      <BackButton />
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 style={{ marginBottom: 10 }}>Share your anonymous id</h1>
-            <p style={{ marginBottom: 40 }}>Level 0: request for a user id and save it in a database.</p>
+            <h1 className="title">Share your anonymous id</h1>
+            <p className="subtitle-page" style={{ marginBottom: 40 }}>
+              Level 0: request for a user id and save it in a database.
+            </p>
 
             <SismoConnectButton
               config={sismoConnectConfig}
@@ -76,13 +77,13 @@ export default function Level0RegisterUser() {
 
         {verifiedUser && (
           <>
-            <h1>Proof received</h1>
-            <p style={{ marginBottom: 20 }}>
+            <h1 className="title">Proof received</h1>
+            <p className="subtitle-page">
               The user has shared his anonymous userId and we saved it in our local database
             </p>
             <div className="profile-container">
               <div>
-                <h2>User Profile</h2>
+                <h2 style={{ marginBottom: 10 }}>User Profile</h2>
                 <b>UserId:</b>
                 <p>{verifiedUser?.id}</p>
               </div>
