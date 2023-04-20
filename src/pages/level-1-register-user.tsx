@@ -6,7 +6,6 @@ import {
   AuthType,
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
-import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {

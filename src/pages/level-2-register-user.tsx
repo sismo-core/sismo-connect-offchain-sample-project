@@ -7,13 +7,11 @@ import {
   ClaimType,
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
-import Link from "next/link";
 import { useState } from "react";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // You can create a new Sismo Connect app at https://factory.sismo.io
   appId: "0x112a692a2005259c25f6094161007967",
-  vaultAppBaseUrl: "http://localhost:3000",
   devMode: {
     // Enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
