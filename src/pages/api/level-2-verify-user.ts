@@ -7,6 +7,7 @@ import {
   SismoConnectVerifiedResult,
   ClaimType,
 } from "@sismo-core/sismo-connect-server";
+import { devGroups } from "../../../config";
 
 /************************************************ */
 /********* A SIMPLE IN-MEMORY DATABASE ********** */
@@ -39,7 +40,7 @@ const userStore = new MyLocalDataBase();
 // define the SismoConnect configuration
 const sismoConnectConfig: SismoConnectServerConfig = {
   // you can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0x112a692a2005259c25f6094161007967",
+  appId: "0xf4977993e52606cfd67b7a1cde717069",
   devMode: {
     enabled: true,
   },
@@ -67,9 +68,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         },
       ],
       claims: [
-        { groupId: "0x682544d549b8a461d7fe3e589846bb7b" },
+        { groupId: devGroups[0].groupId },
         {
-          groupId: "0x1cde61966decb8600dfd0749bd371f12",
+          groupId: devGroups[1].groupId,
           isOptional: true,
           claimType: ClaimType.GTE,
           value: 2,

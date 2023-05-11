@@ -7,25 +7,15 @@ import {
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
+import { devGroups } from "../../config";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // You can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0x112a692a2005259c25f6094161007967",
+  appId: "0xf4977993e52606cfd67b7a1cde717069",
   devMode: {
     // Enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
-    devGroups: [
-      {
-        // Proof of Humanity group : https://factory.sismo.io/groups-explorer?search=0x682544d549b8a461d7fe3e589846bb7b
-        groupId: "0x682544d549b8a461d7fe3e589846bb7b",
-        // Add your dev addresses here to become eligible in the DEV env
-        data: [
-          "0x2b9b9846d7298e0272c61669a54f0e602aba6290",
-          "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec",
-          "0x938f169352008d35e065F153be53b3D3C07Bcd90",
-        ],
-      },
-    ],
+    devGroups: [devGroups[0]],
   },
 };
 
@@ -78,14 +68,14 @@ export default function Level1RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Are you a human?</h1>
+            <h1 className="title">Anonymous and Gated Registration</h1>
             <p className="subtitle-page">
-              Level 1: request for an anonymous user id, a Proof of Humanity, a signed message with
+              Level 1: request for an anonymous userId, a Nouns DAO NFT ownership, a signed message with
               the username and save it in a database.
             </p>
 
             <div className="input-group">
-              <label htmlFor="userName">Gimme you name</label>
+              <label htmlFor="userName">Fill in your name</label>
               <input
                 className="text-input"
                 id="userName"
@@ -99,7 +89,7 @@ export default function Level1RegisterUser() {
             <SismoConnectButton
               config={sismoConnectConfig}
               auths={[{ authType: AuthType.VAULT }]}
-              claims={[{ groupId: "0x682544d549b8a461d7fe3e589846bb7b" }]}
+              claims={[{ groupId: devGroups[0].groupId }]}
               signature={{
                 message: userInput,
                 isSelectableByUser: true, // Allow the user to change the message (here his user name) during the Sismo Connect flow
@@ -113,11 +103,10 @@ export default function Level1RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1 className="title">Yes you are human</h1>
+            <h1 className="title">You have been registered</h1>
             <p className="subtitle-page">
-              The user has shared his anonymous userId, proved that he is a member of the Proof of
-              Humanity group, signed a message with his user name and we saved it in our local
-              database
+              Your shared an anonymous userId, proved that you are a member of Nouns DAO NFT Holders
+              group, signed a message with your username and saved it in a local database
             </p>
             <div className="profile-container">
               <h2 style={{ marginBottom: 10 }}>User Profile</h2>

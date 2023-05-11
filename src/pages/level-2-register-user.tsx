@@ -8,35 +8,15 @@ import {
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
+import { devGroups } from "../../config";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // You can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0x112a692a2005259c25f6094161007967",
+  appId: "0xf4977993e52606cfd67b7a1cde717069",
   devMode: {
     // Enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
-    devGroups: [
-      {
-        // Proof of Humanity group : https://factory.sismo.io/groups-explorer?search=0x682544d549b8a461d7fe3e589846bb7b
-        groupId: "0x682544d549b8a461d7fe3e589846bb7b",
-        // Add your dev addresses here to become eligible in the DEV env
-        data: [
-          "0x2b9b9846d7298e0272c61669a54f0e602aba6290",
-          "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec",
-          "0x938f169352008d35e065F153be53b3D3C07Bcd90",
-        ],
-      },
-      {
-        // Gitcoin Passport group : https://factory.sismo.io/groups-explorer?search=0x1cde61966decb8600dfd0749bd371f12
-        groupId: "0x1cde61966decb8600dfd0749bd371f12",
-        // Add your dev addresses here to become eligible in the DEV env
-        data: {
-          "0x2b9b9846d7298e0272c61669a54f0e602aba6290": 1,
-          "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec": 1,
-          "0x938f169352008d35e065F153be53b3D3C07Bcd90": 4,
-        },
-      },
-    ],
+    devGroups: devGroups,
   },
 };
 
@@ -51,6 +31,8 @@ export default function Level2RegisterUser() {
   const [error, setError] = useState(null);
   const [userInput, setUserInput] = useState("");
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
+
+  console.log(devGroups);
 
   async function verify(response: SismoConnectResponse) {
     // First we update the react state to show the loading state
@@ -92,15 +74,15 @@ export default function Level2RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Are you a human?</h1>
+            <h1 className="title">Anonymous and Gated Registration while optionally proving that you are a human</h1>
             <p className="subtitle-page">
-              Level 2: request for an anonymous user id, a Proof of Humanity, a signed message with
+              Level 2: request for an anonymous userId, a Nouns DAO NFT ownership, a signed message with
               the username and optionally for a proof of Gitcoin Passport and a Twitter Id. Save it
               in a database.
             </p>
 
             <div className="input-group">
-              <label htmlFor="userName">Gimme you name</label>
+              <label htmlFor="userName">Fill in your name</label>
               <input
                 className="text-input"
                 id="userName"
@@ -123,10 +105,10 @@ export default function Level2RegisterUser() {
               ]}
               claims={[
                 {
-                  groupId: "0x682544d549b8a461d7fe3e589846bb7b",
+                  groupId: devGroups[0].groupId,
                 },
                 {
-                  groupId: "0x1cde61966decb8600dfd0749bd371f12",
+                  groupId: devGroups[1].groupId,
                   isOptional: true, // Enable the user to selectively share its Gitcoin Passport
                   claimType: ClaimType.GTE,
                   value: 2,
@@ -145,11 +127,11 @@ export default function Level2RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1 className="title">Yes you are human</h1>
+            <h1 className="title">You have been registered</h1>
             <p className="subtitle-page">
-              The user has shared his anonymous userId, proved that he is a member of the Proof of
-              Humanity group, signed a message with his user name and optionally for a proof of
-              Gitcoin Passport and a Twitter Id. We saved the user in our local database
+              You shared an anonymous userId, proved that you are a member of the Nouns DAO NFT Holders
+              group, signed a message with your username and optionally prove that you are a
+              Gitcoin Passport holder and shared a Twitter Id. Your infos are saved in a local database:
             </p>
             <div className="profile-container">
               <h2 style={{ marginBottom: 10 }}>User Profile</h2>
