@@ -8,6 +8,7 @@ import {
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
+import { devGroups } from "../../config";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // You can create a new Sismo Connect app at https://factory.sismo.io
@@ -15,28 +16,7 @@ export const sismoConnectConfig: SismoConnectClientConfig = {
   devMode: {
     // Enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
-    devGroups: [
-      {
-        // Proof of Humanity group : https://factory.sismo.io/groups-explorer?search=0x682544d549b8a461d7fe3e589846bb7b
-        groupId: "0x682544d549b8a461d7fe3e589846bb7b",
-        // Add your dev addresses here to become eligible in the DEV env
-        data: [
-          "0x2b9b9846d7298e0272c61669a54f0e602aba6290",
-          "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec",
-          "0x938f169352008d35e065F153be53b3D3C07Bcd90",
-        ],
-      },
-      {
-        // Gitcoin Passport group : https://factory.sismo.io/groups-explorer?search=0x1cde61966decb8600dfd0749bd371f12
-        groupId: "0x1cde61966decb8600dfd0749bd371f12",
-        // Add your dev addresses here to become eligible in the DEV env
-        data: {
-          "0x2b9b9846d7298e0272c61669a54f0e602aba6290": 1,
-          "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec": 1,
-          "0x938f169352008d35e065F153be53b3D3C07Bcd90": 4,
-        },
-      },
-    ],
+    devGroups: [devGroups[0]],
   },
 };
 
@@ -123,10 +103,10 @@ export default function Level2RegisterUser() {
               ]}
               claims={[
                 {
-                  groupId: "0x682544d549b8a461d7fe3e589846bb7b",
+                  groupId: devGroups[0].groupId,
                 },
                 {
-                  groupId: "0x1cde61966decb8600dfd0749bd371f12",
+                  groupId: devGroups[1].groupId,
                   isOptional: true, // Enable the user to selectively share its Gitcoin Passport
                   claimType: ClaimType.GTE,
                   value: 2,

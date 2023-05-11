@@ -7,6 +7,7 @@ import {
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
+import { devGroups } from "../../config";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // you can create a new Sismo Connect app at https://factory.sismo.io
@@ -14,6 +15,7 @@ export const sismoConnectConfig: SismoConnectClientConfig = {
   devMode: {
     // enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
+    devGroups: [devGroups[0]],
   },
 };
 

@@ -7,6 +7,7 @@ import {
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
+import { devGroups } from "../../config";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // You can create a new Sismo Connect app at https://factory.sismo.io
@@ -14,18 +15,7 @@ export const sismoConnectConfig: SismoConnectClientConfig = {
   devMode: {
     // Enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
-    devGroups: [
-      {
-        // Proof of Humanity group : https://factory.sismo.io/groups-explorer?search=0x682544d549b8a461d7fe3e589846bb7b
-        groupId: "0x682544d549b8a461d7fe3e589846bb7b",
-        // Add your dev addresses here to become eligible in the DEV env
-        data: [
-          "0x2b9b9846d7298e0272c61669a54f0e602aba6290",
-          "0xb01ee322c4f028b8a6bfcd2a5d48107dc5bc99ec",
-          "0x938f169352008d35e065F153be53b3D3C07Bcd90",
-        ],
-      },
-    ],
+    devGroups: [devGroups[0]],
   },
 };
 
@@ -99,7 +89,7 @@ export default function Level1RegisterUser() {
             <SismoConnectButton
               config={sismoConnectConfig}
               auths={[{ authType: AuthType.VAULT }]}
-              claims={[{ groupId: "0x682544d549b8a461d7fe3e589846bb7b" }]}
+              claims={[{ groupId: devGroups[0].groupId }]}
               signature={{
                 message: userInput,
                 isSelectableByUser: true, // Allow the user to change the message (here his user name) during the Sismo Connect flow
