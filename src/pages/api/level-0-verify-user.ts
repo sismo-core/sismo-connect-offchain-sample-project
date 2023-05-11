@@ -7,7 +7,6 @@ import {
   SismoConnectVerifiedResult,
 } from "@sismo-core/sismo-connect-server";
 
-
 /************************************************ */
 /********* A SIMPLE IN-MEMORY DATABASE ********** */
 /************************************************ */
@@ -28,15 +27,14 @@ class MyLocalDataBase {
 }
 const userStore = new MyLocalDataBase();
 
-
 /************************************************ */
 /************* CONFIGURE SISMO CONNECT ********** */
 /************************************************ */
 
 // define the SismoConnect configuration
 const sismoConnectConfig: SismoConnectServerConfig = {
-// you can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0x112a692a2005259c25f6094161007967",
+  // you can create a new Sismo Connect app at https://factory.sismo.io
+  appId: "0xf4977993e52606cfd67b7a1cde717069",
   devMode: {
     enabled: true,
   },
@@ -44,8 +42,6 @@ const sismoConnectConfig: SismoConnectServerConfig = {
 
 // create a SismoConnect instance
 const sismoConnect = SismoConnect(sismoConnectConfig);
-
-
 
 /************************************************ */
 /***************** THE API ROUTE **************** */

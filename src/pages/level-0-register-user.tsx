@@ -11,7 +11,7 @@ import { devGroups } from "../../config";
 
 export const sismoConnectConfig: SismoConnectClientConfig = {
   // you can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0x112a692a2005259c25f6094161007967",
+  appId: "0xf4977993e52606cfd67b7a1cde717069",
   devMode: {
     // enable or disable dev mode here to create development groups and use the development vault.
     enabled: true,
