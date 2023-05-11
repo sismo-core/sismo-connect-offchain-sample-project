@@ -5,23 +5,24 @@ export default function Home() {
 
   return (
     <div className="container">
-      <h1 className="title">Getting Started</h1>
+      <h1 className="title">Sample Project</h1>
       <h2 className="subtitle">Sismo Connect Offchain</h2>
       <ul className="flex-list">
         <li className="card" onClick={() => router.push("/level-0-register-user")}>
-          <h3 className="card-title">Register a user</h3>
-          <p>Request for a user id from Sismo Connect</p>
+          <h3 className="card-title">Anonymous Registration</h3>
+          <p>Request for a userId from Sismo Connect</p>
         </li>
         <li className="card" onClick={() => router.push("/level-1-register-user")}>
-          <h3 className="card-title">Register a simple user conditionally</h3>
+          <h3 className="card-title">Anonymous and Gated Registration</h3>
           <p>
-            Request for a user id and a Proof of Humanity from Sismo Connect and save his user name
+            Request for a userId and a Nouns DAO NFT proof of ownership from Sismo Connect and save the username
           </p>
         </li>
         <li className="card" onClick={() => router.push("/level-2-register-user")}>
-          <h3 className="card-title">Register a complex user conditionally</h3>
+          <h3 className="card-title">Anonymous and Gated Registration <br />
+          while optionally proving that you are a human</h3>
           <p>
-            Request for a userId, a Proof of Humanity and optionally reveal his twitter id and a
+            Request for a userId, a Nouns DAO NFT proof of ownership and optionally reveal a Twitter Id and a
             proof of Gitcoin passport from Sismo Connect
           </p>
         </li>

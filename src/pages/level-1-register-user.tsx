@@ -68,14 +68,14 @@ export default function Level1RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Are you a human?</h1>
+            <h1 className="title">Anonymous and Gated Registration</h1>
             <p className="subtitle-page">
-              Level 1: request for an anonymous user id, a Proof of Humanity, a signed message with
+              Level 1: request for an anonymous userId, a Nouns DAO NFT ownership, a signed message with
               the username and save it in a database.
             </p>
 
             <div className="input-group">
-              <label htmlFor="userName">Gimme you name</label>
+              <label htmlFor="userName">Fill in your name</label>
               <input
                 className="text-input"
                 id="userName"
@@ -103,11 +103,10 @@ export default function Level1RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1 className="title">Yes you are human</h1>
+            <h1 className="title">You have been registered</h1>
             <p className="subtitle-page">
-              The user has shared his anonymous userId, proved that he is a member of the Proof of
-              Humanity group, signed a message with his user name and we saved it in our local
-              database
+              Your shared an anonymous userId, proved that you are a member of Nouns DAO NFT Holders
+              group, signed a message with your username and saved it in a local database
             </p>
             <div className="profile-container">
               <h2 style={{ marginBottom: 10 }}>User Profile</h2>

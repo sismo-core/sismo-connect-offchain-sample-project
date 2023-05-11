@@ -32,6 +32,8 @@ export default function Level2RegisterUser() {
   const [userInput, setUserInput] = useState("");
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
 
+  console.log(devGroups);
+
   async function verify(response: SismoConnectResponse) {
     // First we update the react state to show the loading state
     setVerifying(true);
@@ -72,15 +74,15 @@ export default function Level2RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Are you a human?</h1>
+            <h1 className="title">Anonymous and Gated Registration while optionally proving that you are a human</h1>
             <p className="subtitle-page">
-              Level 2: request for an anonymous user id, a Proof of Humanity, a signed message with
+              Level 2: request for an anonymous userId, a Nouns DAO NFT ownership, a signed message with
               the username and optionally for a proof of Gitcoin Passport and a Twitter Id. Save it
               in a database.
             </p>
 
             <div className="input-group">
-              <label htmlFor="userName">Gimme you name</label>
+              <label htmlFor="userName">Fill in your name</label>
               <input
                 className="text-input"
                 id="userName"
@@ -125,11 +127,11 @@ export default function Level2RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1 className="title">Yes you are human</h1>
+            <h1 className="title">You have been registered</h1>
             <p className="subtitle-page">
-              The user has shared his anonymous userId, proved that he is a member of the Proof of
-              Humanity group, signed a message with his user name and optionally for a proof of
-              Gitcoin Passport and a Twitter Id. We saved the user in our local database
+              You shared an anonymous userId, proved that you are a member of the Nouns DAO NFT Holders
+              group, signed a message with your username and optionally prove that you are a
+              Gitcoin Passport holder and shared a Twitter Id. Your infos are saved in a local database:
             </p>
             <div className="profile-container">
               <h2 style={{ marginBottom: 10 }}>User Profile</h2>
