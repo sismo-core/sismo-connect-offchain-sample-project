@@ -1,6 +1,6 @@
 // Replace with your address to become eligible for the registration
 // Make sure to have this address in your Vault
-export const yourAddress = "0x77d2ED1FDA0B34B049566aAd916C9ED9C9e8f19A"; // <--- Replace with your address
+export const yourAddress = "0x855193BCbdbD346B423FF830b507CBf90ecCc90B"; // <--- Replace with your address
 
 ///////////////////
 
