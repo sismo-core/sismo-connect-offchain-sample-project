@@ -68,7 +68,7 @@ export default function Level1RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Anonymous and Gated Registration</h1>
+            <h1>Anonymous and Gated Registration</h1>
             <p className="subtitle-page">
               Level 1: request for an anonymous userId, a Nouns DAO NFT ownership, a signed message with
               the username and save it in a database.
@@ -77,7 +77,6 @@ export default function Level1RegisterUser() {
             <div className="input-group">
               <label htmlFor="userName">Fill in your name</label>
               <input
-                className="text-input"
                 id="userName"
                 type="text"
                 value={userInput}
@@ -104,7 +103,7 @@ export default function Level1RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1 className="title">You have been registered</h1>
+            <h1>You have been registered</h1>
             <p className="subtitle-page">
               Your shared an anonymous userId, proved that you are a member of Nouns DAO NFT Holders
               group, signed a message with your username and saved it in a local database

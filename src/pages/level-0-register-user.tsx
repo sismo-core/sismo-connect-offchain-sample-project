@@ -61,7 +61,7 @@ export default function Level0RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Anonymous Registration</h1>
+            <h1>Anonymous Registration</h1>
             <p className="subtitle-page" style={{ marginBottom: 40 }}>
               Level 0: request for a userId and save it in a database.
             </p>
@@ -80,7 +80,7 @@ export default function Level0RegisterUser() {
 
         {verifiedUser && (
           <>
-            <h1 className="title">You have been registered</h1>
+            <h1>You have been registered</h1>
             <p className="subtitle-page">
               You shared an anonymous userId and saved it in a local database
             </p>
