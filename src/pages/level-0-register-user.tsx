@@ -24,13 +24,13 @@ type UserType = {
 };
 
 export default function Level0RegisterUser() {
-  const [verifying, setVerifying] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
 
   async function verify(response: SismoConnectResponse) {
     // first we update the react state to show the loading state
-    setVerifying(true);
+    setLoading(true);
 
     try {
       console.log("response", response);
@@ -51,7 +51,7 @@ export default function Level0RegisterUser() {
       console.error(e);
     } finally {
       // We set the loading state to false to show the user profile
-      setVerifying(false);
+      setLoading(false);
     }
   }
 
@@ -70,8 +70,9 @@ export default function Level0RegisterUser() {
               config={sismoConnectConfig}
               auths={[{ authType: AuthType.VAULT }]}
               onResponse={(response: SismoConnectResponse) => verify(response)}
-              verifying={verifying}
-              callbackPath={"/level-0-register-user"}
+              loading={loading}
+              text="Register with Sismo"
+              callbackUrl={"http://localhost:3000/level-0-register-user"}
             />
             <>{error}</>
           </>

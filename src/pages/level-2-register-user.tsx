@@ -27,16 +27,14 @@ type UserType = {
 };
 
 export default function Level2RegisterUser() {
-  const [verifying, setVerifying] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userInput, setUserInput] = useState("");
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
 
-  console.log(devGroups);
-
   async function verify(response: SismoConnectResponse) {
     // First we update the react state to show the loading state
-    setVerifying(true);
+    setLoading(true);
 
     console.log("response", response);
     try {
@@ -59,7 +57,7 @@ export default function Level2RegisterUser() {
       console.error(e);
     } finally {
       // We set the loading state to false to show the user profile
-      setVerifying(false);
+      setLoading(false);
     }
   }
 
@@ -89,7 +87,7 @@ export default function Level2RegisterUser() {
                 type="text"
                 value={userInput}
                 onChange={onUserInput}
-                disabled={verifying}
+                disabled={loading}
               />
             </div>
 
@@ -119,8 +117,9 @@ export default function Level2RegisterUser() {
                 isSelectableByUser: true, // Allow the user to change the message (here his user name) during the Sismo Connect flow
               }}
               onResponse={(response: SismoConnectResponse) => verify(response)}
-              verifying={verifying}
-              callbackPath={"/level-2-register-user"}
+              loading={loading}
+              text="Register with Sismo"
+              callbackUrl={"http://localhost:3000/level-2-register-user"}
             />
             <>{error}</>
           </>
