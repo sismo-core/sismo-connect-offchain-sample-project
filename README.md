@@ -33,7 +33,11 @@ yarn dev
 After this command, you will have your local application running on http://localhost:3000.
 
 As you will see, the app showcase simple examples on how to register user in a database while maintaining privacy.
-To try to register, you will need to add your address in the [`./config.ts`](./config.ts) file:
+
+
+### Update the config.ts file
+
+To try to register, you will need to add your evm address in the [`./config.ts`](./config.ts) file:
 
 ```typeScript
 // Replace with your address to become eligible for the registration

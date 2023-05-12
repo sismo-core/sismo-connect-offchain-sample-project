@@ -72,7 +72,7 @@ export default function Level2RegisterUser() {
       <div className="container">
         {!verifiedUser && (
           <>
-            <h1 className="title">Anonymous and Gated Registration while optionally proving that you are a human</h1>
+            <h1>Anonymous and Gated Registration while optionally proving that you are a human</h1>
             <p className="subtitle-page">
               Level 2: request for an anonymous userId, a Nouns DAO NFT ownership, a signed message with
               the username and optionally for a proof of Gitcoin Passport and a Twitter Id. Save it
@@ -82,7 +82,6 @@ export default function Level2RegisterUser() {
             <div className="input-group">
               <label htmlFor="userName">Fill in your name</label>
               <input
-                className="text-input"
                 id="userName"
                 type="text"
                 value={userInput}
@@ -126,7 +125,7 @@ export default function Level2RegisterUser() {
         )}
         {verifiedUser && (
           <>
-            <h1 className="title">You have been registered</h1>
+            <h1>You have been registered</h1>
             <p className="subtitle-page">
               You shared an anonymous userId, proved that you are a member of the Nouns DAO NFT Holders
               group, signed a message with your username and optionally prove that you are a
