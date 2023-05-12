@@ -118,7 +118,6 @@ export default function Level2RegisterUser() {
               onResponse={(response: SismoConnectResponse) => verify(response)}
               loading={loading}
               text="Register with Sismo"
-              callbackUrl={"http://localhost:3000/level-2-register-user"}
             />
             <>{error}</>
           </>
