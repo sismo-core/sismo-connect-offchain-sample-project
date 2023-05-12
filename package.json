@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sismo-core/sismo-connect-react": "^0.0.11",
+    "@sismo-core/sismo-connect-react": "^0.0.13",
     "@sismo-core/sismo-connect-server": "^0.0.10",
     "@types/node": "18.15.11",
     "@types/react": "18.0.34",
