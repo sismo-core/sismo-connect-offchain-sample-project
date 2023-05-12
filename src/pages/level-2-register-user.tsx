@@ -32,8 +32,6 @@ export default function Level2RegisterUser() {
   const [userInput, setUserInput] = useState("");
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
 
-  console.log(devGroups);
-
   async function verify(response: SismoConnectResponse) {
     // First we update the react state to show the loading state
     setVerifying(true);
