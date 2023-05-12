@@ -1,37 +1,6 @@
-# sismoConnect Boilerplate Repository
+# Sismo Connect - Offchain Sample Project Repository
 
-This repository contains several examples on how to use sismoConnect packages to build a Sismo Connect application. You will find code examples to easily request proofs from your users and verify them on-chain or off-chain using Sismo Connect.
-
-## Table of Contents
-
-- [Overview](#overview)
-- [Off-Chain Examples](#off-chain-examples)
-- [On-Chain Examples](#on-chain-examples)
-- [Usage](#usage)
-
-## Overview
-
-This repository contains two sets of examples:
-
-1. Off-chain examples: These examples use the backend for verification.
-2. On-chain examples: These examples use Solidity smart contracts for verification.
-
-You can find the documentation of Sismo Connect [here](https://docs.sismo.io/technical-documentation/sismo-connect).
-
-## Off chain examples
-
-- Simple Vault Authentication:
-  [frontend](./src/pages/off-chain/simple-auth.tsx) / [backend](./src/pages/api/verify-simple-auth.ts)
-
-- Simple Claim:
-  [frontend](./src/pages/off-chain/simple-claim.tsx) / [backend](./src/pages/api/verify-simple-claim.ts)
-
-- One Claim and One Vault Authentication:
-  [frontend](./src/pages/off-chain/auth-and-claim.tsx) / [backend](./src/pages/api/verify-auth-and-claim.ts)
-
-- One Claim, multiple claims (with one optional) and one signature:
-  [frontend](./src/pages/off-chain/two-auths-claim-and-signature.tsx) / [backend](./src/pages/api/verify-two-auths-claim-and-signature.ts)
-
+This repository aims at providing simple examples on how to integrate Sismo Connect offchain while allowing you to test the integration locally as easily as possible.
 
 ## Usage
 
@@ -42,22 +11,34 @@ You can find the documentation of Sismo Connect [here](https://docs.sismo.io/tec
 
 ### Install dependencies
 
+
+In a first terminal:
+
 ```bash
 # install frontend / backend dependencies
 yarn
-
-# install contract dependencies with Forge 
-forge install
 ```
 
 ### Start your local Next.js app
 
+In a new terminal:
+
 ```bash
 # this will start your Next.js app
-# the frontend is available on http://localhost:3001/
+# the frontend is available on http://localhost:3000/
 # it also starts a local backend
 yarn dev
 ```
 
-The frontend is now available on http://localhost:3001/
-You can now use the frontend on http://localhost:3001/ with off-chain examples.
+After this command, you will have your local application running on http://localhost:3000.
+
+As you will see, the app showcase simple examples on how to register user in a database while maintaining privacy.
+To try to register, you will need to add your address in the [`./config.ts`](./config.ts) file:
+
+```typeScript
+// Replace with your address to become eligible for the registration
+// make sure to have this address in your Vault
+export const yourAddress = "0x855193BCbdbD346B423FF830b507CBf90ecCc90B";
+```
+
+ℹ️ Make sure to import the address you reference in the config.ts file into your Sismo Vault when you try out the sample project application. If it is not done yet when you get redirected, you can add your address by clicking on the purple "connect" button.
