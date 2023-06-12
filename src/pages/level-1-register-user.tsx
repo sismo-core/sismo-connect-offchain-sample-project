@@ -4,7 +4,9 @@ import {
   SismoConnectClientConfig,
   SismoConnectResponse,
   AuthType,
+
 } from "@sismo-core/sismo-connect-react";
+import { useSismoConnect } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
 import { devGroups } from "../../config";
@@ -19,6 +21,7 @@ export const sismoConnectConfig: SismoConnectClientConfig = {
   },
 };
 
+
 type UserType = {
   id: string;
   name: string;
@@ -29,6 +32,21 @@ export default function Level1RegisterUser() {
   const [error, setError] = useState(null);
   const [userInput, setUserInput] = useState("");
   const [verifiedUser, setVerifiedUser] = useState<UserType>(null);
+
+const config : SismoConnectClientConfig = {
+  appId: "0xxxx"
+}
+
+  const { sismoConnect } = useSismoConnect({config});
+
+function onButtonClick() {
+  sismoConnect.request({
+    claims: [{ groupId: "0x"}],
+  })
+
+  sismoConnect.getResponse().then((response) => {
+    // Backend call
+}
 
   async function verify(response: SismoConnectResponse) {
     // First we update the react state to show the loading state

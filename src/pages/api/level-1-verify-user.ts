@@ -58,12 +58,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   console.log("response", response);
   try {
     const result: SismoConnectVerifiedResult = await sismoConnect.verify(response, {
-      auths: [{ authType: AuthType.VAULT }],
+    //  auths: [{ authType: AuthType.VAULT }],
       claims: [{ groupId: devGroups[0].groupId }],
-      signature: {
-        message: "",
-        isSelectableByUser: true,
-      },
+      // signature: {
+      //   message: "",
+      //   isSelectableByUser: true,
+      // },
     });
 
     const user = {

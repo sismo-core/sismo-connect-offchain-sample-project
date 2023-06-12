@@ -770,7 +770,7 @@
     ethers "^5.6.1"
     tslib "^2.4.0"
 
-"@sismo-core/sismo-connect-client@^0.0.11":
+"@sismo-core/sismo-connect-client@^0.0.11", "@sismo-core/sismo-connect-client@^0.0.13":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@sismo-core/sismo-connect-client/-/sismo-connect-client-0.0.11.tgz#1b8282d34f3bed68c60a75c162405eae09055139"
   integrity sha512-03WPta/6rE0PPqWaM8GAGTvbxw9eYK2lFbpDcWGnfNfrUKmis8TUtjDJbEhZyQdX1q7qdPDpFw9Wcufewr9n1w==
