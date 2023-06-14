@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import {
   SismoConnect,
-  SismoConnectServerConfig,
+  SismoConnectConfig,
   AuthType,
   SismoConnectVerifiedResult,
 } from "@sismo-core/sismo-connect-server";
@@ -36,16 +36,25 @@ const userStore = new MyLocalDataBase();
 /************************************************ */
 
 // define the SismoConnect configuration
-const sismoConnectConfig: SismoConnectServerConfig = {
+const sismoConnectConfig: SismoConnectConfig = {
   // you can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0xf4977993e52606cfd67b7a1cde717069",
-  devMode: {
-    enabled: true,
-  },
+  appId: "0xdc8cf347fc27755ebab5c25ae7087b60"
 };
 
+const options = {
+  verifier: {
+    hydraS3: {
+      commitmentMapperPubKeys: [
+        "0x1a443bff214ac92facdfc3970109c14a82a5d2cd145821815e2be893dcebb498",
+        "0x1ab0875076678bbd098fabb491ef24096bb44e5ffe4e7f97859fbec050f48a6f"
+      ] as [string, string],
+      registryRoot: "0x1536e0192bb402ea37b8834b3f29ca9d0002c902f659d3c49c7442f705fc7526"
+    },
+  }
+}
+
 // create a SismoConnect instance
-const sismoConnect = SismoConnect(sismoConnectConfig);
+const sismoConnect = SismoConnect({ config: sismoConnectConfig, options });
 
 /************************************************ */
 /***************** THE API ROUTE **************** */

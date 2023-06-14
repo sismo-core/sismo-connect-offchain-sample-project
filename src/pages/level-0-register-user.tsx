@@ -1,22 +1,17 @@
 import BackButton from "@/components/BackButton";
 import {
   SismoConnectButton,
-  SismoConnectClientConfig,
+  SismoConnectConfig,
   SismoConnectResponse,
   AuthType,
 } from "@sismo-core/sismo-connect-react";
 import axios from "axios";
 import { useState } from "react";
-import { devGroups } from "../../config";
 
-export const sismoConnectConfig: SismoConnectClientConfig = {
+export const sismoConnectConfig: SismoConnectConfig = {
   // you can create a new Sismo Connect app at https://factory.sismo.io
-  appId: "0xf4977993e52606cfd67b7a1cde717069",
-  devMode: {
-    // enable or disable dev mode here to create development groups and use the development vault.
-    enabled: true,
-    devGroups: [devGroups[0]],
-  },
+  appId: "0xdc8cf347fc27755ebab5c25ae7087b60",
+  vaultAppBaseUrl: "https://vault-beta.zikies.io"
 };
 
 type UserType = {
@@ -33,7 +28,6 @@ export default function Level0RegisterUser() {
     setLoading(true);
 
     try {
-      console.log("response", response);
       // We send the response to our backend to verify the proof
       const res = await axios.post(`/api/level-0-verify-user`, {
         response,
